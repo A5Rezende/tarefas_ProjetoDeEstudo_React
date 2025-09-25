@@ -26,6 +26,14 @@ export default function ListaSupermercado() {
     setItens(listaOrdenada)
   }
 
+  function removerItem(index) {
+        const listaAtualizada = itens.filter((item, i) => {
+            return i != index
+        })
+
+        setItens(listaAtualizada)
+    }
+
   return (
     <div className="container mt-5" style={{ maxWidth: "500px" }}>
       <h2 className="text-center mb-4">Lista de Supermercado</h2>
@@ -74,6 +82,9 @@ export default function ListaSupermercado() {
                 Marcar como Comprado
               </button>
             )}
+            <button className="btn btn-danger btn-sm" onClick={() => removerItem(index)}>
+              Remover Item
+            </button>
           </li>
         ))}
       </ul>

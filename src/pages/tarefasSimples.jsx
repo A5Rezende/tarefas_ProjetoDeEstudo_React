@@ -5,6 +5,19 @@ export default function TarefasSimples() {
     const [listaTarefas, setListaTarefas] = useState([])
     const [novaTarefa, setNovaTarefa] = useState("")
 
+    // Persistir os dados localmente 
+    useEffect(() => {
+        // Como listaTarefas é um array em JS, o JSON.stringify é usado para converter em formato de texto (json)
+        localStorage.setItem("tarefasSimples", JSON.stringify(listaTarefas))
+        
+        /*
+        if (listaTarefas.length > 0) {
+            localStorage.setItem("tarefasSimples", JSON.stringify(listaTarefas))
+        }
+        */
+    // Executar sempre que listaTarefas for alterado
+    }, [listaTarefas])
+
     function removerTarefa(index) {
         // Cria uma lista sem a posição do index, O Filter é colocado ai para verificar as posições da lista de tarefas, caso ele 
         // chegue a posição que tem o mesmo número do index, ele pula a posição, fazendo que a nova lista não tenha o valor excluido
