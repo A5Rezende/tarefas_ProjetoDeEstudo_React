@@ -1,6 +1,7 @@
 import TarefasSimples from "./pages/tarefasSimples";
 import TarefasComStatus from "./pages/tarefasComStatus";
 import ListaSupermercado from "./pages/ListaSupermercado";
+import Calculadora from "./pages/Calculadora";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 
 export default function App() {
@@ -13,12 +14,14 @@ export default function App() {
           <Link className="btn btn-outline-primary btn-sm m-1" to="/">Tarefas Simples</Link>
           <Link className="btn btn-outline-secondary btn-sm m-1" to="/status">Tarefas Com Status</Link>
           <Link className="btn btn-outline-danger btn-sm m-1" to="/supermercados">Lista de Supermercados</Link>
+          <Link className="btn btn-outline-warning btn-sm m-1" to="/calculadora">Calculadora</Link>
         </nav>
 
         <Routes>
           <Route path="/" element={<TarefasSimples />} />
           <Route path="/status" element={<TarefasComStatus />} />
           <Route path="/supermercados" element={<ListaSupermercado />} />
+          <Route path="/calculadora" element={<Calculadora />} />
         </Routes>
       </div>
     </Router>
